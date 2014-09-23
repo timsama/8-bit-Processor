@@ -1,0 +1,581 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.16 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.17 secs
+ 
+--> Reading design: Processor.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "Processor.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "Processor"
+Output Format                      : NGC
+Target Device                      : xc6slx16-3-csg324
+
+---- Source Options
+Top Module Name                    : Processor
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "\\wannsee\users\u0825347\My Documents\Project\FinalProject\TriBuf.v" into library work
+Parsing module <TriBuf>.
+Analyzing Verilog file "\\wannsee\users\u0825347\My Documents\Project\FinalProject\LED_7SEG.v" into library work
+Parsing module <LED_7SEG>.
+Analyzing Verilog file "\\wannsee\users\u0825347\My Documents\Project\FinalProject\DFF.v" into library work
+Parsing module <DFF>.
+Analyzing Verilog file "\\wannsee\users\u0825347\My Documents\Project\FinalProject\DeBouncer.v" into library work
+Parsing module <DeBouncer>.
+Analyzing Verilog file "\\wannsee\users\u0825347\My Documents\Project\FinalProject\CPUController.v" into library work
+Parsing module <CPUController>.
+Analyzing Verilog file "\\wannsee\users\u0825347\My Documents\Project\FinalProject\ALU.v" into library work
+Parsing module <ALU>.
+Analyzing Verilog file "\\wannsee\users\u0825347\My Documents\Project\FinalProject\Processor.v" into library work
+Parsing module <Processor>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <Processor>.
+
+Elaborating module <DeBouncer>.
+WARNING:HDLCompiler:413 - "\\wannsee\users\u0825347\My Documents\Project\FinalProject\DeBouncer.v" Line 24: Result of 24-bit expression is truncated to fit in 23-bit target.
+
+Elaborating module <CPUController(End=14)>.
+
+Elaborating module <TriBuf>.
+
+Elaborating module <DFF>.
+
+Elaborating module <ALU>.
+
+Elaborating module <LED_7SEG>.
+WARNING:HDLCompiler:413 - "\\wannsee\users\u0825347\My Documents\Project\FinalProject\LED_7SEG.v" Line 31: Result of 21-bit expression is truncated to fit in 20-bit target.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <Processor>.
+    Related source file is "\\wannsee\users\u0825347\My Documents\Project\FinalProject\Processor.v".
+    Found 16x8-bit Read Only RAM for signal <_n0071>
+    Summary:
+	inferred   1 RAM(s).
+	inferred   1 Multiplexer(s).
+Unit <Processor> synthesized.
+
+Synthesizing Unit <DeBouncer>.
+    Related source file is "\\wannsee\users\u0825347\My Documents\Project\FinalProject\DeBouncer.v".
+        N = 23
+    Found 1-bit register for signal <DFF2>.
+    Found 23-bit register for signal <q_reg>.
+    Found 1-bit register for signal <DB_out>.
+    Found 1-bit register for signal <DFF1>.
+    Found 23-bit adder for signal <q_reg[22]_GND_2_o_add_0_OUT> created at line 24.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  26 D-type flip-flop(s).
+Unit <DeBouncer> synthesized.
+
+Synthesizing Unit <CPUController>.
+    Related source file is "\\wannsee\users\u0825347\My Documents\Project\FinalProject\CPUController.v".
+        End = 14
+    Found 1-bit register for signal <counter_zero>.
+    Found 1-bit register for signal <counter_huge>.
+    Found 1-bit register for signal <fetch_instr>.
+    Found 1-bit register for signal <save_instr>.
+    Found 1-bit register for signal <store>.
+    Found 1-bit register for signal <move>.
+    Found 1-bit register for signal <load>.
+    Found 1-bit register for signal <ALUin>.
+    Found 1-bit register for signal <ALUexec>.
+    Found 1-bit register for signal <ALUout>.
+    Found 1-bit register for signal <clear>.
+    Found 10-bit register for signal <counter>.
+    Found 6-bit register for signal <Instruction>.
+    Found 1-bit register for signal <idle>.
+    Found 10-bit adder for signal <counter[9]_GND_3_o_add_3_OUT> created at line 180.
+    Found 10-bit comparator greater for signal <counter[9]_GND_3_o_LessThan_2_o> created at line 147
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  28 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred  28 Multiplexer(s).
+Unit <CPUController> synthesized.
+
+Synthesizing Unit <TriBuf>.
+    Related source file is "\\wannsee\users\u0825347\My Documents\Project\FinalProject\TriBuf.v".
+    Found 1-bit tristate buffer for signal <Out<3>> created at line 27
+    Found 1-bit tristate buffer for signal <Out<2>> created at line 27
+    Found 1-bit tristate buffer for signal <Out<1>> created at line 27
+    Found 1-bit tristate buffer for signal <Out<0>> created at line 27
+    Summary:
+	inferred   4 Tristate(s).
+Unit <TriBuf> synthesized.
+
+Synthesizing Unit <DFF>.
+    Related source file is "\\wannsee\users\u0825347\My Documents\Project\FinalProject\DFF.v".
+    Found 4-bit register for signal <Out>.
+    Summary:
+	inferred   4 D-type flip-flop(s).
+Unit <DFF> synthesized.
+
+Synthesizing Unit <ALU>.
+    Related source file is "\\wannsee\users\u0825347\My Documents\Project\FinalProject\ALU.v".
+    Found 4-bit subtractor for signal <X[3]_Y[3]_sub_4_OUT> created at line 33.
+    Found 4-bit adder for signal <X[3]_Y[3]_add_4_OUT> created at line 34.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   2 Multiplexer(s).
+Unit <ALU> synthesized.
+
+Synthesizing Unit <LED_7SEG>.
+    Related source file is "\\wannsee\users\u0825347\My Documents\Project\FinalProject\LED_7SEG.v".
+    Found 20-bit register for signal <ticks>.
+    Found 20-bit adder for signal <ticks[19]_GND_11_o_add_2_OUT> created at line 31.
+    Found 16x7-bit Read Only RAM for signal <segs>
+    Found 20-bit comparator greater for signal <PWR_8_o_ticks[19]_LessThan_2_o> created at line 28
+    Found 20-bit comparator greater for signal <ticks[19]_GND_11_o_LessThan_7_o> created at line 38
+    Found 20-bit comparator greater for signal <GND_11_o_ticks[19]_LessThan_8_o> created at line 43
+    Found 20-bit comparator greater for signal <ticks[19]_GND_11_o_LessThan_9_o> created at line 43
+    Found 20-bit comparator greater for signal <GND_11_o_ticks[19]_LessThan_10_o> created at line 48
+    Found 20-bit comparator greater for signal <ticks[19]_PWR_8_o_LessThan_11_o> created at line 48
+    Found 20-bit comparator greater for signal <PWR_8_o_ticks[19]_LessThan_12_o> created at line 53
+    Found 20-bit comparator greater for signal <ticks[19]_PWR_8_o_LessThan_13_o> created at line 53
+    Summary:
+	inferred   1 RAM(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred  20 D-type flip-flop(s).
+	inferred   8 Comparator(s).
+	inferred  19 Multiplexer(s).
+Unit <LED_7SEG> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 2
+ 16x7-bit single-port Read Only RAM                    : 1
+ 16x8-bit single-port Read Only RAM                    : 1
+# Adders/Subtractors                                   : 5
+ 10-bit adder                                          : 1
+ 20-bit adder                                          : 1
+ 23-bit adder                                          : 2
+ 4-bit addsub                                          : 1
+# Registers                                            : 28
+ 1-bit register                                        : 14
+ 10-bit register                                       : 1
+ 2-bit register                                        : 2
+ 20-bit register                                       : 1
+ 23-bit register                                       : 2
+ 4-bit register                                        : 7
+ 6-bit register                                        : 1
+# Comparators                                          : 9
+ 10-bit comparator greater                             : 1
+ 20-bit comparator greater                             : 8
+# Multiplexers                                         : 50
+ 1-bit 2-to-1 multiplexer                              : 42
+ 10-bit 2-to-1 multiplexer                             : 1
+ 4-bit 2-to-1 multiplexer                              : 5
+ 6-bit 2-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 1
+# Tristates                                            : 24
+ 1-bit tristate buffer                                 : 24
+# Xors                                                 : 2
+ 1-bit xor2                                            : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <CPUController>.
+The following registers are absorbed into counter <counter>: 1 register on signal <counter>.
+Unit <CPUController> synthesized (advanced).
+
+Synthesizing (advanced) Unit <LED_7SEG>.
+The following registers are absorbed into counter <ticks>: 1 register on signal <ticks>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_segs> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 16-word x 7-bit                     |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <digit>         |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <segs>          |          |
+    -----------------------------------------------------------------------
+Unit <LED_7SEG> synthesized (advanced).
+
+Synthesizing (advanced) Unit <Processor>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram__n0071> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 16-word x 8-bit                     |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <counter<3:0>>  |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <Processor> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 2
+ 16x7-bit single-port distributed Read Only RAM        : 1
+ 16x8-bit single-port distributed Read Only RAM        : 1
+# Adders/Subtractors                                   : 3
+ 23-bit adder                                          : 2
+ 4-bit addsub                                          : 1
+# Counters                                             : 2
+ 10-bit up counter                                     : 1
+ 20-bit up counter                                     : 1
+# Registers                                            : 98
+ Flip-Flops                                            : 98
+# Comparators                                          : 9
+ 10-bit comparator greater                             : 1
+ 20-bit comparator greater                             : 8
+# Multiplexers                                         : 49
+ 1-bit 2-to-1 multiplexer                              : 42
+ 4-bit 2-to-1 multiplexer                              : 5
+ 6-bit 2-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 1
+# Xors                                                 : 2
+ 1-bit xor2                                            : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:2040 - Unit Processor: 4 multi-source signals are replaced by logic (pull-up yes): Bus<0>, Bus<1>, Bus<2>, Bus<3>.
+
+Optimizing unit <Processor> ...
+
+Optimizing unit <CPUController> ...
+
+Optimizing unit <DeBouncer> ...
+
+Optimizing unit <LED_7SEG> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block Processor, actual ratio is 3.
+FlipFlop cpu/ALUexec has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 129
+ Flip-Flops                                            : 129
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : Processor.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 426
+#      GND                         : 1
+#      INV                         : 4
+#      LUT1                        : 63
+#      LUT2                        : 17
+#      LUT3                        : 22
+#      LUT4                        : 40
+#      LUT5                        : 72
+#      LUT6                        : 58
+#      MUXCY                       : 72
+#      VCC                         : 1
+#      XORCY                       : 76
+# FlipFlops/Latches                : 129
+#      FDE                         : 8
+#      FDR                         : 83
+#      FDRE                        : 37
+#      FDSE                        : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 27
+#      IBUF                        : 11
+#      OBUF                        : 16
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx16csg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             129  out of  18224     0%  
+ Number of Slice LUTs:                  276  out of   9112     3%  
+    Number used as Logic:               276  out of   9112     3%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    293
+   Number with an unused Flip Flop:     164  out of    293    55%  
+   Number with an unused LUT:            17  out of    293     5%  
+   Number of fully used LUT-FF pairs:   112  out of    293    38%  
+   Number of unique control sets:        25
+
+IO Utilization: 
+ Number of IOs:                          28
+ Number of bonded IOBs:                  28  out of    232    12%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 129   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 6.356ns (Maximum Frequency: 157.324MHz)
+   Minimum input arrival time before clock: 6.586ns
+   Maximum output required time after clock: 11.217ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 6.356ns (frequency: 157.324MHz)
+  Total number of paths / destination ports: 4203 / 216
+-------------------------------------------------------------------------
+Delay:               6.356ns (Levels of Logic = 6)
+  Source:            cpu/ALUin (FF)
+  Destination:       R5/Out_3 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: cpu/ALUin to R5/Out_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q             16   0.447   1.005  cpu/ALUin (cpu/ALUin)
+     LUT2:I1->O            6   0.205   0.745  cpu/Tristate<0>11 (cpu/Tristate<0>1)
+     LUT6:I5->O            4   0.205   0.684  cpu/Tristate<3>1 (Tristate<3>)
+     LUT6:I5->O            3   0.205   0.651  Bus<1>LogicTrst1 (Bus<1>LogicTrst)
+     LUT5:I4->O            7   0.205   0.878  Bus<1>LogicTrst4 (Bus<1>)
+     LUT6:I4->O            2   0.203   0.617  alu/Maddsub_X[3]_X[3]_mux_5_OUT_cy<1>11 (alu/Maddsub_X[3]_X[3]_mux_5_OUT_cy<1>)
+     LUT6:I5->O            1   0.205   0.000  alu/Mmux_O31 (ALUOut<2>)
+     FDRE:D                    0.102          R5/Out_2
+    ----------------------------------------
+    Total                      6.356ns (1.777ns logic, 4.579ns route)
+                                       (28.0% logic, 72.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 154 / 132
+-------------------------------------------------------------------------
+Offset:              6.586ns (Levels of Logic = 4)
+  Source:            clr (PAD)
+  Destination:       cpu/store (FF)
+  Destination Clock: clk rising
+
+  Data Path: clr to cpu/store
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            97   1.222   2.202  clr_IBUF (clr_IBUF)
+     LUT5:I0->O           10   0.203   0.857  cpu/_n046811 (cpu/_n04681)
+     LUT4:I3->O            4   0.205   0.684  cpu/_n059211 (cpu/_n05921)
+     LUT5:I4->O            1   0.205   0.579  cpu/_n03151 (cpu/_n0315)
+     FDR:R                     0.430          cpu/move
+    ----------------------------------------
+    Total                      6.586ns (2.265ns logic, 4.321ns route)
+                                       (34.4% logic, 65.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 5611 / 15
+-------------------------------------------------------------------------
+Offset:              11.217ns (Levels of Logic = 8)
+  Source:            seg7/ticks_2 (FF)
+  Destination:       segs<6> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: seg7/ticks_2 to segs<6>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              3   0.447   1.015  seg7/ticks_2 (seg7/ticks_2)
+     LUT6:I0->O            2   0.203   0.845  seg7/GND_11_o_ticks[19]_AND_40_o11 (seg7/GND_11_o_ticks[19]_AND_40_o1)
+     LUT6:I3->O            1   0.205   0.924  seg7/GND_11_o_ticks[19]_AND_40_o4 (seg7/GND_11_o_ticks[19]_AND_40_o5)
+     LUT5:I0->O            1   0.203   0.580  seg7/GND_11_o_ticks[19]_AND_40_o7_SW0 (N65)
+     LUT6:I5->O            6   0.205   0.849  seg7/GND_11_o_ticks[19]_AND_40_o7 (seg7/GND_11_o_ticks[19]_AND_40_o)
+     LUT3:I1->O            5   0.203   0.962  seg7/Mmux_enable31 (EnableSegs_2_OBUF)
+     LUT5:I1->O            7   0.203   1.021  seg7/Mmux_digit<1>1 (seg7/digit<1>)
+     LUT4:I0->O            1   0.203   0.579  seg7/Mram_segs31 (segs_3_OBUF)
+     OBUF:I->O                 2.571          segs_3_OBUF (segs<3>)
+    ----------------------------------------
+    Total                     11.217ns (4.443ns logic, 6.774ns route)
+                                       (39.6% logic, 60.4% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    6.356|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 14.00 secs
+Total CPU time to Xst completion: 13.56 secs
+ 
+--> 
+
+Total memory usage is 259708 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    3 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
+
